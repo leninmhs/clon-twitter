@@ -10,7 +10,7 @@ return array(
 	'name'=>'Clon de Twitter',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log','yiibooster'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -22,6 +22,7 @@ return array(
 		// uncomment the following to enable the Gii tool
 		
 		'gii'=>array(
+			'generatorPaths' => array('booster.gii'),
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123456',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
@@ -32,6 +33,11 @@ return array(
 
 	// application components
 	'components'=>array(
+
+		'yiibooster' => array(
+			'class' => 'ext.yiibooster.components.Booster',
+			'responsiveCss' => true,
+		),
 
 		'user'=>array(
 			// enable cookie-based authentication
@@ -82,4 +88,13 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+
+
+'language'=>'es',
+'sourceLanguage'=>'en',
+'defaultController'=>'tweet/index',
+
+
 );
+
+
