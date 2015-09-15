@@ -53,7 +53,16 @@ class Usuario extends CActiveRecord
 			array('fk_idioma, fk_pais, fk_pregunta_secreta', 'numerical', 'integerOnly'=>true),
 			array('usuario', 'length', 'max'=>30),
 			array('correo', 'length', 'max'=>80),
+
 			array('nombre_completo, foto_perfil, imagen_fondo', 'length', 'max'=>100),
+ array('foto_perfil', 'length', 'max' => 255, 'tooLong' => '{attribute} el nombre del archivo es muy largo (max {max} caracteres).', 'on' => 'insert,upload'),
+
+array('foto_perfil', 'file', 'types' => 'jpg,jpeg,gif,png', 'allowEmpty'=>true, 'maxSize' => 1024 * 1024 * 2, 'tooLarge' => 'La foto debe ser menor a 2MB !!!', 'on' => 'insert, upload'),
+
+			array('correo', 'email'),
+			array('sitioweb', 'url'),
+			array('usuario, correo', 'unique', 'caseSensitive'=>false ),
+
 			array('password, respuesta_secreta', 'length', 'max'=>256),
 			array('telefono', 'length', 'max'=>15),
 			array('sitioweb', 'length', 'max'=>60),
@@ -159,4 +168,13 @@ class Usuario extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function validatePassword($password){
+	return $this->hashPassword($password)===$this->password;
+	}
+	 
+	public function hashPassword($password){
+	return md5($password);
+	}
+
 }
