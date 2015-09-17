@@ -79,6 +79,7 @@ class SiteController extends Controller
 	{
 		$model=new LoginForm;
 
+                
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -95,6 +96,7 @@ class SiteController extends Controller
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
+                $this->layout = $layout = '//layouts/principal';
 		$this->render('login',array('model'=>$model));
 	}
 

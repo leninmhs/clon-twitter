@@ -1,1 +1,2 @@
 protected/data/*.db
+/nbproject/private/
