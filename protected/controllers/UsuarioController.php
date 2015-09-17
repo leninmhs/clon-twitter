@@ -74,6 +74,7 @@ $model->foto_perfil= CUploadedFile::getInstance($model,'foto_perfil');
 
 if($model->save()){
 $model->password=md5($model->password);
+
 if(!empty($model->foto_perfil)){
 $model->foto_perfil->saveAs(Yii::getPathOfAlias('webroot')."/images/".$model->foto_perfil); }
 

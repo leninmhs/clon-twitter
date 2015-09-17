@@ -16,5 +16,4 @@
 	<?php echo CHtml::encode($data->fecha_creacion); ?>
 	<br />
 
-
 </div>

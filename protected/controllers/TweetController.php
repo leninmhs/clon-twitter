@@ -71,6 +71,8 @@ $model=new Tweet;
 if(isset($_POST['Tweet']))
 {
 $model->attributes=$_POST['Tweet'];
+$model->usuario = Yii::app()->user->id;
+
 if($model->save())
 $this->redirect(array('view','id'=>$model->id_tweet));
 }
@@ -127,6 +129,7 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 /**
 * Lists all models.
 */
+/*
 public function actionIndex()
 {
 $dataProvider=new CActiveDataProvider('Tweet');
@@ -134,6 +137,26 @@ $this->render('index',array(
 'dataProvider'=>$dataProvider,
 ));
 }
+*/
+
+
+public function actionIndex(){
+
+$sql = "select t.id_tweet, t.tweet, t.foto, t.usuario,u.usuario,u.nombre_completo,u.foto_perfil, t.fecha_creacion,
+( select count(1) from retweet r  where r.retweet = t.id_tweet ) as retweet,
+( select count(1) from favorito f where f.favorito = t.id_tweet ) as favorito
+from tweet as t
+join seguidor as s on s.siguiendo = t.usuario and s.seguidor = ".Yii::app()->user->id."
+join usuario as u on u.id_usuario = t.usuario
+order by t.id_tweet desc";
+
+$consulta = Yii::app()->db->createCommand($sql);
+$losTweets = $consulta->queryAll();
+
+$this->render('index',array('losTweets'=>$losTweets,));
+
+}
+
 
 /**
 * Manages all models.

@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Pregunta Secretas',
+	'Tweets',
 );
 
 $this->menu=array(
-array('label'=>'Create PreguntaSecreta','url'=>array('create')),
-array('label'=>'Manage PreguntaSecreta','url'=>array('admin')),
+array('label'=>'Create Tweet','url'=>array('create')),
+array('label'=>'Manage Tweet','url'=>array('admin')),
 );
 ?>
 
-<h1>Pregunta Secretas</h1>
+<h1>Tweets</h1>
 
 <?php $this->widget('booster.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,

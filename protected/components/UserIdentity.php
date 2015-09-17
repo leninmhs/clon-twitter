@@ -16,7 +16,11 @@ $this->errorCode=self::ERROR_NONE;
  
 /*Consultamos los datos del usuario por el username ($user->username) */
 $info_usuario = Usuario::model()->find('LOWER(usuario)=?', array($user->usuario));
- 
+/*
+$this->setState('id_usuario',$info_usuario->id_usuario);
+$this->setState('foto_perfil',$info_usuario->foto_perfil);
+$this->setState('usuario',$info_usuario->usuario);
+ */
 }
 return $this->errorCode==self::ERROR_NONE;
 }

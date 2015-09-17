@@ -11,7 +11,13 @@ array('label'=>'Manage Tweet','url'=>array('admin')),
 
 <h1>Tweets</h1>
 
-<?php $this->widget('booster.widgets.TbListView',array(
-'dataProvider'=>$dataProvider,
-'itemView'=>'_view',
-)); ?>
+<?php 
+
+
+foreach ($losTweets as $idtweet => $tweet){
+
+	$this->renderPartial('_view', array('tweet' => $tweet));
+
+}
+
+ ?>

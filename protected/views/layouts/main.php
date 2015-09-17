@@ -77,7 +77,10 @@
                     'type' => 'navbar',
                     'htmlOptions' => array('class' => 'pull-right'),
                     'items' => array(
-                        array('label' => 'Link', 'url' => '#'),
+                        array('label' => 
+				//Yii::app()->user->foto_perfil." ".
+				//Yii::app()->user->usuario, 
+"aqui",'url' => '#'),
                         '---',
                         array(
                             'label' => 'Dropdown',
@@ -99,9 +102,9 @@
         )
     );
 
-
-
-
+/*
+echo CHtml::image(Yii::app()->baseUrl."/images/".Yii::app()->user->getState('foto_perfil'),"texto de alt",              array("height"=>"100", "width"=>"100")  )
+*/
 ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
