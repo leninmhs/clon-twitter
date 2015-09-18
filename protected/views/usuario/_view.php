@@ -1,5 +1,5 @@
  <div class="view">
-
+ 
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('usuario')); ?>:</b>
     <?php echo CHtml::encode($data->usuario); ?>
