@@ -1,5 +1,5 @@
 <?php /* @var $this Controller */ ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     
     <style type="text/css">
