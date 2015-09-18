@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $form = $this->beginWidget('booster.widgets.TbActiveForm', array(
     'id' => 'usuario-form',
     'htmlOptions' => array('enctype' => 'multipart/form-data'),
