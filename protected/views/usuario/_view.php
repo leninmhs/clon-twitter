@@ -14,7 +14,7 @@
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('foto_perfil')); ?>:</b>
-    <?php echo CHtml::image(Yii::app()->baseUrl . "/images/" . $data->foto_perfil); //array('height' => 100, 'width' => 100); ?>
+    <?php echo CHtml::image(Yii::app()->baseUrl . "/images/" . $data->foto_perfil);   //array('height' => 100, 'width' => 100); ?>
     <br />
 
     <?php
