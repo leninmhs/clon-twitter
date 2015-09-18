@@ -13,6 +13,9 @@
 	<?php echo CHtml::encode($data->biografia); ?>
 	<br />
 
+        <b><?php echo CHtml::encode($data->getAttributeLabel('foto_perfil')); ?>:</b>
+        <?php echo CHtml::image(Yii::app()->baseUrl."/images/".$data->foto_perfil); ?>
+<br />
 
 <?php
 
