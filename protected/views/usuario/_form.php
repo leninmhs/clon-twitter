@@ -50,7 +50,7 @@
 	<?php echo $form->fileFieldGroup($model, 'foto_perfil',	
 	array('wrapperHtmlOptions' => array('class' => 'col-sm-5',), )); ?>
 
-	<?php echo $form->textFieldGroup($model,'imagen_fondo',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>100)))); ?>
+	<?php echo $form->fileFieldGroup($model, 'imagen_fondo',array('wrapperHtmlOptions' => array('class' => 'col-sm-5',), )); ?>
 
 	<?php echo $form->checkBoxGroup($model,'activo'); ?>
 

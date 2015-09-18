@@ -59,34 +59,41 @@ $this->render('view',array(
 * Creates a new model.
 * If creation is successful, the browser will be redirected to the 'view' page.
 */
-public function actionCreate()
-{
-$model=new Usuario;
+public function actionCreate(){
 
+$model=new Usuario;
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-if(isset($_POST['Usuario']))
-{
-$model->attributes=$_POST['Usuario'];
+if(isset($_POST['Usuario'])){
 
-$model->foto_perfil= CUploadedFile::getInstance($model,'foto_perfil');
+$model->attributes=$_POST['Usuario'];
+$model->foto_perfil=CUploadedFile::getInstance($model,'foto_perfil');
+$model->imagen_fondo=CUploadedFile::getInstance($model,'imagen_fondo');
+
+$model->password=md5($model->password); //agregar esta linea antes del save() lo mismo en la funcion de modificar actionUpdate()
 
 if($model->save()){
-$model->password=md5($model->password);
-
 if(!empty($model->foto_perfil)){
-$model->foto_perfil->saveAs(Yii::getPathOfAlias('webroot')."/images/".$model->foto_perfil); }
 
+$model->foto_perfil->saveAs(Yii::getPathOfAlias('webroot')."/images/".$model->foto_perfil);
+
+}
 $this->redirect(array('view','id'=>$model->id_usuario));
+
+if(!empty($model->imagen_fondo)){
+
+$model->imagen_fondsaveAs(Yii::getPathOfAlias('webroot')."/images/".$model->imagen_fondo);
 }
+$this->redirect(array('view','id'=>$model->id_usuario));
+
+}
+}
+
+$this->render('create',array('model'=>$model,));
 
 }
 
-$this->render('create',array(
-'model'=>$model,
-));
-}
 
 /**
 * Updates a particular model.
