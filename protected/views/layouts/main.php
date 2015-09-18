@@ -1,8 +1,9 @@
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html>
-
+    
     <style type="text/css">
+        
         body {
             background-image: url("<?php echo Yii::app()->baseUrl; ?>/images/a.jpg")  !important;
             background-color: White !important;

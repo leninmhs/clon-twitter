@@ -2,7 +2,6 @@
 /* @var $this SiteController */
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
-
 ?>
 
 
@@ -33,8 +32,9 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">                                
                             <div class="row-fluid user-row">
+                                <center><h1><p style="color: black; font-size:30px;" ><b><span style="color: #81BEF7;">Tweets Banavih</span></b></p></h1></center>
                                 <img src="<?php echo Yii:: app()->baseUrl . '/images/clon-twitter.jpg' ?> "  class="img-responsive" alt="Conxole Admin"/>
-<?php echo $form->error($model, 'username'); ?>
+                                <?php echo $form->error($model, 'username'); ?>
                             </div>
                         </div>
                         <div class="panel-body">
