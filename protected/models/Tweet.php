@@ -88,10 +88,12 @@ class Tweet extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
+		
+		$criteria->order = 'id_tweet DESC';
 
 		$criteria->compare('id_tweet',$this->id_tweet);
-		$criteria->compare('tweet',$this->tweet,true);
+		$criteria->compare('LOWER(tweet)' , strtolower($this->tweet) ,true);
 		$criteria->compare('foto',$this->foto,true);
 		$criteria->compare('usuario',$this->usuario);
 		$criteria->compare('fecha_creacion',$this->fecha_creacion,true);
